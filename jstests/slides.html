@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+/*
+crucial structural parts
+*/
+
+#slideshow{
+	position: relative;
+}
+
+.slide{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	opacity: 0;
+
+	/* this affects the transition speed */
+	transition: opacity 1.5s;
+}
+
+.slide:first-of-type{
+	opacity: 1;
+}
+
+
+
+/*
+style these parts however you want
+*/
+
+.slide{
+	background: #eee;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 70px 10px;
+	font-size: 50px;
+	text-align: center;
+	font-weight: 100;
+	color: #fff;
+}
+
+.slide:first-of-type{
+	background: red;
+}
+.slide:nth-of-type(2){
+	background: #333;
+}
+.slide:nth-of-type(3){
+	background: green;
+}
+.slide:nth-of-type(4){
+	background: blue;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="slideshow">
+	<div class="slide">Slide 1</div>
+	<div class="slide">Slide 2</div>
+	<div class="slide">Slide 3</div>
+	<div class="slide">Slide 4</div>
+</div>
+
+<script>
+
+var slides = document.getElementById('slideshow').querySelectorAll('.slide');
+var currentSlide = 0;
+var slideInterval = setInterval(function(){
+	slides[currentSlide].style.opacity = 0;
+	currentSlide = (currentSlide+1) % slides.length;
+	slides[currentSlide].style.opacity = 1;
+},3000);
+
+
+</script>
+</body>
+</html>

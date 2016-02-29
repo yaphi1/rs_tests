@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rosetta Stone&reg; &amp; Fitbrains</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<link type="text/css" rel="stylesheet" href="styles/main.css" />
+<style></style>
+</head>
+<body>
+
+
+<!-- ***************************************
+	Top menu bar
+*************************************** -->
+
+<div id="menubar">
+	<a href="http://www.rosettastone.com/"><img src="images/rslogo.png" alt="Rosetta Stone" class="logo"></a>
+	<div class="phone">1.800.767.3882</div>
+</div>
+
+
+<!-- ***************************************
+	Banner
+*************************************** -->
+
+<div class="bannercontainer">
+	<div class="bannercontent">
+		<div class="bannertitle">Train Your Brain</div>
+		<div class="bannersubtitle">for language learning</div>
+		<b>NEW</b> from Rosetta Stone<sup>&copy;</sup>: <b>Prime your brain for learning a new
+		language</b> with an exclusive bundle featuring our award-winning language app
+		plus our new brain training program Fit Brains<sup>&copy;</sup>
+		designed by neuroscientists.
+	</div>
+	<div class="devices"><img src="images/devices2.png" alt="Rosetta Stone Fitbrains works across a range of devices"></div>
+</div>
+
+
+
+
+
+<!-- ***************************************
+	Content
+*************************************** -->
+
+<div class="contentcontainer" id="formbeginning">
+	<div class="content1">
+		<div class="choosecontainer beigebg">
+			<div class="choosetitle">
+				<span class="circlednumber">1</span>
+				Choose the Language You'd Like to Learn
+			</div>
+			<button class="yellowbutton" id="chooselanguagebutton">CHOOSE YOUR NEXT LANGUAGE</button>
+		</div>
+
+
+
+		<div id="languageoverlay">
+			<div class="closeoverlay-container">
+				<div id="closeoverlay"></div>
+			</div>
+			<div class="languageheader">
+				Select the language you would like to learn
+			</div>
+
+			<div id="languagecontainer">
+
+				<div class="language2col">
+					<div class="languagecolumn">
+					    <!-- ara,chi,dar,ned,eng,ebr,tgl,fra,deu,grk,heb,hin,ind,gle,ita,jpn,kor,lat,pas,far,pol,por,rus,esp,esc,kis,sve,tur,urd,vie -->
+					    <a id="ara">Arabic</a>
+					    <a id="chi">Chinese <span>(Mandarin)</span></a>
+					    <a id="dar">Dari</a>
+					    <a id="ned">Dutch</a>
+					    <a id="eng">English <span>(American)</span></a>
+					    <a id="ebr">English <span>(British)</span></a>
+					    <a id="tgl">Filipino <span>(Tagalog)</span></a>
+					    <a id="fra">French</a>
+					</div>
+					<div class="languagecolumn">
+					    <a id="deu">German</a>
+					    <a id="grk">Greek</a>
+					    <a id="heb">Hebrew</a>
+					    <a id="hin">Hindi</a>
+					    <a id="ind">Indonesian</a>
+					    <a id="gle">Irish</a>
+					    <a id="ita">Italian</a>
+					    <a id="jpn">Japanese</a>
+					</div>
+				</div>
+
+				<div class="language2col">
+					<div class="languagecolumn">
+					    <a id="kor">Korean</a>
+					    <a id="lat">Latin</a>
+					    <a id="pas">Pashto</a>
+					    <a id="far">Persian <span>(Farsi)</span></a>
+					    <a id="pol">Polish</a>
+					    <a id="por">Portuguese <span>(Brazil)</span></a>
+					    <a id="rus">Russian</a>
+					    <a id="esp">Spanish</a>
+					</div>
+					<div class="languagecolumn">
+						<a id="esc">Spanish <span>(Spain)</span></a>
+					    <a id="kis">Swahili</a>
+					    <a id="sve">Swedish</a>
+					    <a id="tur">Turkish</a>
+					    <a id="urd">Urdu</a>
+					    <a id="vie">Vietnamese</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="choosecontainer">
+			<div class="choosetitle">
+				<span class="circlednumber">2</span>
+				Choose Your Bundle & <b>Get Started Now!</b>
+			</div>
+			<div class="bundlecontainer">
+
+				<!-- Bundle 1 -->
+				<div class="bundle selectedbundle" id="bundle1" data-sku="98393" data-promo="fitbundle_12M">
+					<!-- promo code used to be Fitbrains_12M -->
+					<div class="bundlecheck" id="bundlecheck1">&check;</div>
+					<div class="bundletop">
+						<div class="bundleprice" id="bundleprice1">$266</div>
+						<div class="bundlecontent">
+							<div class="bundletitle">
+								Pro Bundle
+							</div>
+							12 month language subscription
+							<br>+
+							<br>12 month Fit Brains subscription
+						</div>
+					</div>
+					<div class="bundlefooter">Save $130+ off full price with this bundle</div>
+				</div>
+
+				<!-- Bundle 2 -->
+				<div class="bundle" id="bundle2" data-sku="98392" data-promo="fitbundle_1M">
+					<div class="bundlecheck" id="bundlecheck2"></div>
+					<div class="bundletop">
+						<div class="bundleprice" id="bundleprice2">$213</div>
+						<div class="bundlecontent">
+							<div class="bundletitle">
+								Standard Bundle
+							</div>
+							12 month language subscription
+							<br>+
+							<br>1 month Fit Brains subscription
+						</div>
+					</div>
+					<div class="bundlefooter">Jumpstart your learning with 1/mo. of brain training</div>
+				</div>
+				
+			</div>
+
+		</div>
+		<div class="divider"></div>
+	</div>
+
+	<div class="m-buynow">
+		<div>
+			<span class="pricecopy">Total <strong id="totalprice">$266</strong></span>
+			<button class="cartlink" id="buynowbutton" data-wait="">Buy Now</button>
+		</div>
+		<div class="guarantee">
+			<span class="img"></span>
+			<h3>Purchase with confidence</h3>
+			<p>We stand behind our product and method. If your Rosetta Stone purchase fails to meet your expectations, you may return it within the first 30 days for a full refund.</p>
+		</div>
+	</div>
+	<div class="m-learnmore">
+		<div class="l-dtcontain">
+			<h3 class="dttitle">Learn More About How Brain Training Primes Your Mind for Language Learning</h3>
+			<p class="dtp">Keep your brain active to keep it healthy. Fit Brains’ games train crucial skills like memory, concentration, problem-solving, and more. This toolkit will help prepare you to take on your new language.</p>
+			<p class="dtp">Our proven method helps you unlock your innate ability to learn a new language on your time and at your pace. See and hear only your new language with our immersive method that introduces words in a meaningful progression. It’s the closest thing to learning a language in the place it’s actually spoken.</p>
+		</div>
+		<p class="dtb"><b>Here is what you get with our NEW product bundles:</b></p>
+		<div class="graphicline">
+			<div class="rscircle">
+				<img alt="Rosetta Stone Logo in a Circle" src="images/circrs.png" />
+			</div>
+			<div class="plus">
+				<img alt="Plus sign" src="images/graphicplus.png" />
+			</div>
+			<div class="fbcircle">
+				<img alt="Fitbrains in a Circle" src="images/circfb.png" />
+			</div>
+		</div>
+		<div class="dticon" id="staricon"></div>
+		<div class="method l-lmblock">
+			<h3><span>A Proven Method</span></h3>
+			<p class="rsp">Our technology-based approach recreates the immersion method, alowing you to learn a new language effectively.</p>
+			<p class="fbp">Research shows that online training is an effective way to build cognitive reserve and increase brain performace.</p>
+		</div>
+		<div class="dticon" id="compicon"></div>
+		<div class="easy l-lmblock">
+			<h3><span>Easy &amp; Accessible</span></h3>
+			<p class="rsp">Learn and practice on the go—or sync and track your progress across multiple devices. Our available mobile apps foriPad®, iPhone®, and Android™ tablets and smartphones make it easy.</p>
+			<p class="fbp">You can log-in to your Fit Brains account from any computer with internet connection. You can also train on the go. anytime with our mobile apps available on iOS & Android.</p>
+		</div>
+		<div class="dticon" id="trophyicon"></div>
+		<div class="games l-lmblock">
+			<h3><span>You'll Love the Games</span></h3>
+			<p class="rsp">Rosetta Stone is a lively online community where practicing your language skills looks a lot like playing games. Chances are, you'll so much fun, you won't realize how much you're improving.</p>
+			<p class="fbp">Fit Brains has the highest quality brain games on the market. These games will always keep your mind entertained and challenged.</p>
+		</div>
+		<div class="getstarted">
+			<a href="#formbeginning" class="cartlink" id="getstartedbutton">Get Started</a>
+		</div>
+		<p class="orlang"><a href="http://www.rosettastone.com/lp/sbs/">or click here if you are looking for language products only</a></p>
+	</div>
+	<div class="m-footer">
+		<div class="logoline"></div>
+		<p>&copy;1999-2014 Rosetta Stone Ltd. All Rights Reserved.</p>
+		<ul>
+			<li><a href="http://www.rosettastone.com/anti-piracy">Anti-Piracy</a></li>
+			<li><a href="http://www.rosettastone.com/agreements">Agreements</a></li>
+			<li><a href="http://www.rosettastone.com/terms">Terms &amp; Conditions</a></li>
+			<li><a href="http://www.rosettastone.com/privacy">Privacy Policy</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="scripts/all.js"></script>
+</body>
+</html>

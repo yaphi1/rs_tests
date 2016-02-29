@@ -1,0 +1,31 @@
+<div id="digital_cd_container" style="text-align:center; padding:10px 0px; cursor:pointer; box-sizing:content-box;"><div id="digital_cd_check" style="display:inline-block; vertical-align:middle; width:20px; height:20px; border:1px solid #aaa; font-size:27px; line-height:24px; text-indent:2px; color:#1ca2e7; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; box-sizing:content-box;"></div><div style="display:inline-block; vertical-align:middle; font-size:14px; font-family:sans-serif; padding-left:12px; text-align:left; width:175px; box-sizing:content-box;">Want the security of a backup? Add a CD-ROM box set for an additional $50.</div>
+
+<img src="http://www.rosettastone.com/lp/digital_only_test/digital_test_cd_box.png" style="vertical-align:middle;">
+<!-- <div style="display:inline-block; vertical-align:middle; border:2px solid #333; width:28px; height:28px; border-radius:50%; margin-left:5px; box-sizing:content-box;"><div style="vertical-align:middle; border:2px solid #333; width:4px; height:4px; border-radius:50%; margin:10px 0px 0px 10px; box-sizing:content-box;"></div></div> -->
+
+</div>
+
+
+<script>
+function id(str){ return document.getElementById(str); }
+
+
+// when the checkbox (or its label) is clicked, toggle the cd
+id('digital_cd_container').onclick = toggleCD;
+
+// this function handles the cd checkbox
+function toggleCD(){
+	// if the box is NOT currently checked...
+	if(id('digital_cd_check').innerHTML==''){
+		id('digital_cd_check').innerHTML = '&#10004;'; // show the check
+		// add the cd to the cart url
+		console.log('cd added');
+	}
+	// if the box is currently checked...
+	else{
+		id('digital_cd_check').innerHTML = ''; // remove the check
+		// remove the cd from the cart url
+		console.log('cd removed');
+	}
+}
+</script>

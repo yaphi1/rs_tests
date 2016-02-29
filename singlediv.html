@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	background: #555;
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+.mydiv{
+	position: fixed;
+	left:40%;
+	top:30%;
+	width: 200px;
+	height: 150px;
+	border-radius: 180px 180px 90px 90px;
+	background: #0f5;
+	background: linear-gradient(to bottom, #0f5 20%, #052 100%);
+}
+
+.mydiv:before{
+	content: '';
+	display: block;
+	position: absolute;
+	left: 50px;
+	bottom: -35px;
+	background: #ffc;
+	width: 100px;
+	height: 80px;
+	border-radius: 40%;
+	box-shadow: 0px 5px 15px 5px rgba(53,33,33,0.5) inset;
+	border-top: 1px solid #031;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div class="mydiv"></div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+</script>
+</body>
+</html>

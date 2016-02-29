@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+	text-align: center;
+}
+
+
+.promotime{
+	padding: 80px 20px 40px;
+}
+
+#strikethrough{
+	font-size: 100px;
+}
+
+.violatorcontainer{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width:100%;
+	height: 100%;
+	overflow: hidden;
+}
+.violator{
+	padding: 30px;
+	font-size: 50px;
+	background: red;
+	position: absolute;
+	left: -400px;
+	top: 10px;
+	display: block;
+	white-space: nowrap;
+}
+
+.v1{
+	top: 300px;
+	left: auto;
+}
+
+.nooverflow{
+	position: relative;
+	overflow-x: hidden;
+	padding-bottom: 400px;
+}
+
+.top50{top: 100px;}
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media (min-width:800px) {
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="nooverflow">
+	<div class="promotime">It's promo time!</div>
+	<div id="strikethrough">$400</div>
+
+	<div class="violator">Haters gonna hate</div>
+	<div class="violator v1">Violators gonna violate</div>
+</div>
+
+<script>
+var yb = {
+	id : function(str){return document.getElementById(str)},
+	tag : function(str){return document.getElementsByTagName(str)},
+	cn : function(str){return document.getElementsByClassName(str)}
+};
+
+var price = 400;
+
+var strikeinterval = setInterval(function(){
+	price--;
+	yb.id('strikethrough').innerHTML = '$'+price;
+	if(price%2==1){
+		yb.id('strikethrough').style.color = 'red';
+		yb.id('strikethrough').style.textDecoration = 'line-through';
+	}
+	else{
+		yb.id('strikethrough').style.color = '#333';
+		yb.id('strikethrough').style.textDecoration = 'none';
+	}
+	if(price==0){price=400;}
+}, 100);
+
+
+var violatorPosX = [-800, -1300];
+
+var violatorinterval0 = setInterval(function(){
+	violatorPosX[0]+=2;
+	yb.cn('violator')[0].style.left = violatorPosX[0]+'px';
+	if(violatorPosX[0]>1000){violatorPosX[0]=-800;}
+
+	violatorPosX[1]+=2;
+	yb.cn('violator')[1].style.right = violatorPosX[1]+'px';
+	if(violatorPosX[1]>1000){violatorPosX[1]=-1300;}
+},10);
+
+</script>
+</body>
+</html>

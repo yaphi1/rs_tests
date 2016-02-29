@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div></div>
+
+<script>
+
+/******************************
+start desktop rto
+******************************/
+
+var yb = { id : function(str){return document.getElementById(str)} };
+
+// return cookie value
+function rto_cookie_value(cookiename){
+	return document.cookie.match(cookiename) ?
+		document.cookie.split(cookiename+'=')[1].split(';')[0] : null;
+}
+
+// choose which urls to exclude from rtos
+function excluded_rto_url(){
+	if(window.location.href.match(/whateverz/i)){return true;} //put any url you want to exclude
+	return false;
+}
+
+// check if the page has one of the correct rsis and it doesn't have any of the excluded url pieces
+if(window.location.href.match(/bbi|bai/i) && !excluded_rto_url()){
+
+	// make sure the rto has not been seen yet
+	if(!rto_cookie_value('ybrto')){
+		setTimeout(function() {
+
+			// set cookie
+			var expireInOneDay = new Date((new Date()).getTime()+(24*60*60*1000)).toUTCString();
+			document.cookie="ybrto=true; expires="+expireInOneDay+"; path=/";
+
+			var newprice = 'boi'; // default discount price
+			var defaultrsi = 'sparkredbfboi'; // default discount rsi
+			var reduced_price_url = 'http://www.rosettastone.com/lp/sbs/'+defaultrsi+'/' //default discount url
+
+			// check which price point we're at and determine the discounted price
+			if(window.location.pathname.match('bbi')){newprice = 'bai'; reduced_price_url = window.location.href.replace('bbi',newprice).replace(/(\?|\&)rto\=on/i,'');}
+			if(window.location.pathname.match('bai')){newprice = 'boi'; reduced_price_url = window.location.href.replace('bai',newprice).replace(/(\?|\&)rto\=on/i,'');}
+
+
+			var rtohtml = '<div style="z-index:999999; position:fixed; width:100%; text-align:center; padding-top:50px;" id="rtocontainer"><div id="rto" style="line-height:1; width:550px; display:inline-block; margin:auto; position:relative;"><div id="close_rto" style="position:absolute; top:13px; right:8px; width:30px; height:35px; font-family:arial; font-size:30px; cursor:pointer;"></div><img src="http://rosettastone.com/lp/globals/img/rto/desktopRTO_'+newprice+'.jpg" style="width:100%;"><a href="'+reduced_price_url+'"><div style="position:absolute; bottom:165px; right:23%; width:54%; height:55px; font-size:30px; cursor:pointer;"></div></a></div></div>';
+			
+			
+			// put this rto at the beginning without relying on jquery
+			document.getElementsByTagName('div')[0].innerHTML += rtohtml;
+
+			// close the rto when clicking on the x
+			yb.id('close_rto').onclick = function(){
+				yb.id('rtocontainer').style.display = 'none';
+			}
+
+		}, 20000); // show rto after 20 seconds
+	}
+}
+
+/******************************
+end desktop rto
+******************************/
+
+
+
+
+
+/*
+var ybrtoexpire = new Date((new Date()).getTime()+(365*24*60*60*1000)).toUTCString();
+document.cookie="yaphi=woohoo; expires=Thu, 18 Dec 2014 12:00:00 UTC; path=/";
+*/
+
+function cookieValue(cookiename){
+	return document.cookie.match(cookiename) ?
+		document.cookie.split(cookiename+'=')[1].split(';')[0] : null;
+}
+
+/*
+check cookie with this:
+document.cookie.split('ybrto=')[1].split(';')[0];
+*/
+
+
+function delete_rto_cookie(cookiename){
+	document.cookie="ybrto=true; expires=Thu, 18 Dec 2000 12:00:00 UTC; path=/";
+}
+
+console.log(cookieValue('yaphi'));
+
+
+</script>
+</body>
+</html>

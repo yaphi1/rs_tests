@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>js</title>
+</head>
+<body>
+
+<div style="padding:30px; background:red;" id="mydiv">my div</div>
+
+<button id="mybutton">click</button>
+
+<script>
+
+document.getElementById('mybutton').onclick = changeColor;
+
+var color = 'red';
+
+function changeColor(){
+	//color = color=='red' ? 'blue' : 'red';
+	//document.getElementById('mydiv').style.background = color;
+	if(document.getElementById('mydiv').style.backgroundColor =='red'){
+		document.getElementById('mydiv').style.backgroundColor = 'blue';
+	}
+	else{
+		document.getElementById('mydiv').style.backgroundColor = 'red';
+	}
+}
+
+</script>
+</body>
+</html>

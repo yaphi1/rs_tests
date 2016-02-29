@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+button{
+	cursor: pointer;
+	display: inline-block;
+	width: 100%;
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 2px;
+	margin-top: 30px;
+	height: 50px;
+	box-sizing:border-box;
+	background: #edbd39;
+	box-shadow: 0px -35px 25px -15px #ca9029 inset, 0px 1px 2px -1px #999;
+	text-shadow: -1px -1px 0px #ca9029;
+	padding: 0px;
+	border: none;
+}
+
+
+.wholepagecontainer{
+	width: 100%;
+	display:inline-block;
+}
+
+
+/***************************************
+Top menu
+****************************************/
+
+#menucontainer{
+	z-index: -5;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: red;
+	overflow: hidden;
+}
+
+#menubar{
+	height:60px;
+	width: 100%;
+	background: #aef;
+}
+
+
+#logocontainer{
+	padding:15px;
+	display:inline-block; zoom:1; *display:inline;
+	font-size: 30px;
+}
+
+#hamburger{
+	float:right;
+	padding: 20px 18px;
+	vertical-align: middle;
+	cursor:pointer;
+}
+
+#hamburger div{
+	background-color: #333;
+	width:27px;
+	height:3px;
+	margin-top: 5px;
+	border-radius:3px;
+}
+
+#hamburger div:first-child{
+	margin: 0px;
+}
+
+#hamburger:hover div{
+	background-color: #888;
+}
+
+
+
+#mainmenu{
+	z-index: 10;
+	display: inline-block;
+	width: 80%;
+	position: absolute;
+	top: 0px;
+	left: 100%;
+	background: #f0f1f1;
+	overflow: scroll;
+}
+
+#mainmenu a{
+	text-decoration: none;
+	display: block;
+	background:#444;
+	padding: 20px;
+	border-bottom: 1px solid #777;
+	color:#ccc;
+	font-size: 15px;
+}
+
+
+
+
+
+/****************************************
+Banner
+****************************************/
+
+.bannercontainer{
+	display: table;
+	background: #afc;
+	height:300px;
+	width:100%;
+}
+
+.bannercontent{
+	display:table-cell;
+	padding:30px;
+	font-size: 40px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.bannersubtitle{
+	font-size: 30px;
+}
+
+
+
+
+
+
+/****************************************
+Content
+****************************************/
+
+.contentcontainer{
+	text-align: center;
+}
+
+.section1{
+	padding:30px;
+}
+
+.blurbcontainer{
+	background:#eee;
+	margin-top:20px;
+	min-height: 200px;
+}
+
+.zerofont{
+	font-size: 0px;
+}
+
+.sidebyside{
+	font-size: 20px;
+	background: #f00;
+	min-height: 200px;
+}
+
+.sbsalternate{background: #a00;}
+
+
+
+
+
+
+
+
+/****************************************
+See How it Works overlay
+****************************************/
+#see-how-it-works-overlay{
+	display: none;
+	z-index: 5000;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	top: 0%;
+	background: #000;
+	overflow: visible;
+}
+
+.seepanel{
+	width: 100%;
+	height: 100%;
+}
+
+.seepanel1{
+	background: #555;
+}
+
+.seepanel2{
+	background: yellow;
+}
+
+.seepanel3{
+	background: red;
+}
+
+.seepanel4{
+	background: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media (min-width:800px) {
+
+	.blurbcontainer{
+		width: 240px;
+		display: inline-block; zoom:1; *display: inline;
+	}
+
+	.sidebyside{
+		width: 33.3333%;
+		display: inline-block; zoom:1; *display: inline;
+	}
+}
+
+</style>
+
+</head>
+<body>
+<div class="wholepagecontainer">
+
+	<!-- ***************************************
+		Top menu bar
+	*************************************** -->
+
+	<div id="menubar">
+		<div id="logocontainer">
+			Logo here
+		</div>
+		<div id="hamburger">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+
+	
+
+	
+
+
+
+
+	<!-- ***************************************
+		Banner
+	*************************************** -->
+
+	<div class="bannercontainer">
+		<div class="bannercontent">
+			BANNER
+			<div class="bannersubtitle">Subtitle goes here and here</div>
+			<button id="seebutton">See how it works</button>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- ***************************************
+		Content
+	*************************************** -->
+
+	<div class="contentcontainer">
+		<div class="section1">
+			Content goes here and here and here and here and here and here
+			and here and here and here and here and here and here
+			<br>
+			<div class="blurbcontainer">Blurb divs</div>
+			<div class="blurbcontainer">Blurb divs</div>
+			<div class="blurbcontainer">Blurb divs</div>
+		</div>
+
+		<div class="zerofont">
+			<div class="sidebyside">Side by side divs</div>
+			<div class="sidebyside sbsalternate">Side by side divs</div>
+			<div class="sidebyside">Side by side divs</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+<div id="menucontainer">
+	<div id="mainmenu">
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+		<a href="#">Test link</a>
+	</div>
+</div>
+
+
+
+
+
+
+<div id="see-how-it-works-overlay">
+	<div class="seepanel seepanel1"></div>
+	<div class="seepanel seepanel2"></div>
+	<div class="seepanel seepanel3"></div>
+	<div class="seepanel seepanel4"></div>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+$(document).ready(function(){
+
+	var closedmenu = 100;
+	var openmenu = 20;
+	var currentmenu = closedmenu;
+
+	$('#hamburger').click(function(){
+		currentmenu = currentmenu==closedmenu ? openmenu : closedmenu; /* if the menu is closed, open it, and vice versa */
+		$('.wholepagecontainer').animate({marginLeft: (currentmenu-100)+'%' });
+		$('#mainmenu').animate({left: currentmenu+'%' });
+	});
+
+});
+
+
+
+
+$(document).ready(function(){
+
+	$('#seebutton').click(function(){
+		$('#see-how-it-works-overlay').fadeIn('fast');
+		document.body.style.position = 'fixed';
+		document.body.style.overflow = 'hidden';
+
+		var panel = 0;
+		$('.seepanel').click(function(){
+			panel++;
+			//alert(panel);
+			$('#see-how-it-works-overlay').animate({ top : -panel*100+'%'});
+		});
+	});
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+/***********************************************************
+GENERAL
+***********************************************************/
+body{
+	margin: 0px;
+	font-size: 110%;
+	font-family: sans-serif;
+	color:#333;
+	background: #fff;
+	line-height: 1.5;
+	font-weight: 100;
+}
+
+img{ border: 0px; }
+
+a{ text-decoration: none; }
+
+button{
+	border:0px;
+	cursor: pointer;
+}
+
+h1{
+	margin: 0px auto;
+	padding: 40px 0px 20px;
+	font-weight: 100;
+	font-size: 2.1em;
+	max-width: 800px;
+	line-height: 1.3;
+}
+
+h1.homeh1{
+	margin: 0px auto;
+	padding: 0px 0px 40px;
+	font-size: 35px;
+	max-width: 820px;
+}
+
+h2{
+	line-height: 1.1;
+    font-weight: 100;
+    margin: 0px;
+    font-size: 2.5em;
+    padding: 0px 0px 20px;
+    color: #678;
+}
+
+h3 {
+    font-size: 1.8em;
+    margin: 30px 0px 0px;
+    font-weight: 100;
+}
+
+p{
+	margin: 15px 0px;
+	line-height: 1.5;
+	font-weight: 100;
+}
+
+ol li{
+	line-height: 1;
+	margin-bottom: 15px;
+}
+
+li a{
+	color: #09d;
+}
+
+li a:hover{
+	color: #0be;
+	text-decoration: underline;
+}
+
+
+
+
+
+/***********************************************************
+MENUBAR
+***********************************************************/
+
+#menubar{
+	padding: 20px;
+	font-weight: 100;
+	font-size: 24px;
+	line-height: 1.3;
+}
+
+#menubar a{
+	text-decoration: none;
+	color: #333;
+}
+
+
+
+
+
+/***********************************************************
+MASTHEAD
+***********************************************************/
+
+.masthead{
+	background: #269;
+	text-align: center;
+	color: #fff;
+	padding: 140px 20px;
+}
+
+.mastheadhome{
+	background: #28b;
+	text-align: center;
+	color: #fff;
+	padding: 50px 20px;
+}
+
+.homeformtext{
+	font-size:20px;
+	max-width: 700px;
+	margin: auto;
+	font-weight: 100;
+}
+
+.homeform{
+	max-width: 700px;
+	margin: auto;
+	padding-top: 10px;
+}
+
+.homeform input{
+	padding: 15px;
+	border: 1px solid #aaa;
+	font-size: 20px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	box-shadow: 1px 1px 3px 0px #ddd inset;
+	border-radius: 3px;
+	width: 100%;
+	display: block;
+}
+
+.homeform button{
+	padding: 15px 10px;
+	border: 0px;
+	font-size: 20px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	background: #0c7;
+	color: #fff;
+	width: 100%;
+	display: block;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.homeform button:hover{
+	background: #0d8;
+}
+
+
+
+
+
+/***********************************************************
+PLAIN CONTENT
+***********************************************************/
+
+.plaincontent{
+	padding: 30px 20px;
+	font-size: 1em;
+	font-weight: 100;
+	line-height: 1.5;
+}
+
+.plaincontent h2{
+	margin: 0px;
+	padding: 80px 0px 20px;
+}
+
+.plaincontent p{
+	margin: 0px;
+	padding: 0px 0px 20px;
+}
+
+.plaincontent ul{
+	margin: 0px;
+	padding: 0px 0px 20px 30px;
+}
+
+.plaincontent a{
+	color: #09d;
+}
+
+.plaincontent a:hover{
+	color: #0be;
+}
+
+
+
+
+
+
+/***********************************************************
+TUTORIAL CONTENT
+***********************************************************/
+
+.firstcontentline{
+	font-size: 1.3em;
+	font-weight: 100;
+	padding-top: 10px;
+	line-height: 1.2;
+}
+.showcasetitle{
+	padding: 50px 0px 20px;
+	font-weight: 100;
+	font-size: 1.8em;
+	color: #89a;
+}
+
+.showcase{
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
+
+.contentwidth{
+	max-width: 600px;
+	margin: auto;
+}
+
+.content{
+	padding: 20px;
+}
+
+.intro{
+	padding: 20px 20px 70px;
+}
+
+.stepscontainer{
+	background:#0ad;
+	padding:50px 0px;
+}
+
+.stepbox{
+	background:#fff;
+	padding:30px 20px;
+	border-radius:5px;
+	margin-bottom: 70px;
+}
+
+
+
+
+
+
+
+/***********************************************************
+CODE
+***********************************************************/
+
+code, .resultcontainer{
+	background: #444;
+	color: #fff;
+	display: block;
+	padding: 20px;
+	/*word-wrap: break-word;*/
+	overflow: scroll;
+	white-space: nowrap;
+	/*font-size: 20px;*/
+}
+.resultcontainer{ text-align: center; white-space: normal;}
+
+
+.tag{ color: gold; }
+
+.cssclass{ color: #aef; }
+
+.cssproperty{ color: pink; }
+
+.csscomment { color: #6f6; }
+
+.indent{ padding-left: 40px; }
+
+
+
+
+
+
+
+
+/***********************************************************
+EMAIL FORM
+***********************************************************/
+
+.signupsection{
+	padding: 10px 20px 40px;
+}
+
+.enjoyedthis{
+	font-size: 2em;
+	padding-top: 60px;
+}
+
+.signupform{
+	background:#ffcfac;
+	padding: 30px;
+	border-radius: 5px;
+	color: #333;
+	vertical-align: middle;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.signupcopy{
+	padding-bottom: 10px;
+}
+
+.gettutorials{
+	font-weight: 100;
+	font-size: 30px; 
+	padding-bottom: 7px;
+}
+
+.bluechecks{
+	list-style: none;
+	padding: 0px;
+	padding-left: 15px;
+	margin: 0px;
+	font-size: 0.95em;
+	font-weight: 100;
+}
+.bluechecks span{ color:#19b; }
+
+
+.zerofont{ font-size: 0px; }
+
+.signupform input{
+	padding: 15px;
+	border: 1px solid #aaa;
+	font-size: 20px;
+	box-sizing: border-box;
+	width: 100%;
+	margin-bottom: 10px;
+	box-shadow: 1px 1px 3px 0px #ddd inset;
+	border-radius: 3px;
+}
+
+
+.signupbutton{
+	position: relative;
+	display: inline-block;
+	padding: 15px 25px;
+	background: #056;
+	background-image: linear-gradient(#056,#0de);
+	text-decoration: none;
+	color: #fff;
+	font-size: 25px;
+	font-weight: 100;
+	border-radius: 3px;
+	box-shadow: 0px 1px 4px -2px #333;
+	text-shadow: 0px -1px #333;
+	border: 0px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.signupbutton:after{
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: calc(100% - 4px);
+	height: 50%;
+	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+}
+
+.signupbutton:hover{
+	background: #067;
+	background-image: linear-gradient(#067,#0ef);
+}
+
+.nospam{
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+
+
+
+
+/***********************************************************
+FOOTER
+***********************************************************/
+
+.copyright{
+	background: #333;
+	color: #fff;
+	padding: 30px 10px;
+	text-align: center;
+	font-size: 17px;
+}
+
+
+
+
+
+
+
+
+/************************************************************
+first breakpoint
+************************************************************/
+@media (min-width:700px) {
+	body{
+		font-size: 140%;
+	}
+
+	.mastheadhome{
+		padding: 150px 20px;
+		background-image:url('img/macbgdark.png');
+		background-size: cover;
+	}
+
+	h1.homeh1{
+		font-size: 49px;
+	}
+
+	.homeform input{
+		width: 28%;
+		display: inline;
+	}
+
+	.homeform button{
+		width: 33%;
+		display: inline;
+	}
+
+	.stepbox{ padding:80px 100px; }
+
+	.signupform input{
+		width: 49%;
+		display:inline-block;
+	}
+
+	.signupform input:first-child{
+		margin-right: 2%;
+	}
+}

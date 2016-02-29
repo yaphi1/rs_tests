@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div id="output"></div>
+
+<input id="input" type="text">
+
+
+<script>
+var arr = [2,3,5];
+
+document.getElementById('output').innerHTML = '['+arr+']';
+
+document.getElementById('input').onkeydown = function(e){
+	if(e.keyCode==13){
+		eval(this.value);
+		document.getElementById('output').innerHTML = '['+arr+']';
+	}
+};
+
+</script>
+</body>
+</html>

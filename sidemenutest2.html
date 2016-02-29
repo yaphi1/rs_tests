@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+
+
+.wholepagecontainer{
+	width: 100%;
+	display:inline-block;
+}
+
+
+/***************************************
+Top menu
+****************************************/
+
+
+#menubar{
+	height:60px;
+	width: 100%;
+	background: #aef;
+}
+
+
+#logocontainer{
+	padding:15px;
+	display:inline-block; zoom:1; *display:inline;
+	font-size: 30px;
+}
+
+#hamburger{
+	float:right;
+	padding: 20px 18px;
+	vertical-align: middle;
+	cursor:pointer;
+}
+
+#hamburger div{
+	background-color: #333;
+	width:27px;
+	height:3px;
+	margin-bottom: 5px;
+	border-radius:3px;
+}
+
+#hamburger div:last-child{
+	margin: 0px;
+}
+
+#hamburger:hover div{
+	background-color: #888;
+}
+
+
+
+#mainmenu{
+	display: inline-block;
+	width: 0px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: #f0f1f1;
+	overflow: scroll;
+}
+
+#mainmenu a{
+	text-decoration: none;
+	display: block;
+	background:#444;
+	padding: 20px;
+	border-bottom: 1px solid #777;
+	color:#ccc;
+	font-size: 15px;
+}
+
+
+
+
+
+/****************************************
+Banner
+****************************************/
+
+.bannercontainer{
+	display: table;
+	background: #afc;
+	height:300px;
+	width:100%;
+}
+
+.bannercontent{
+	display:table-cell;
+	padding:30px;
+	font-size: 40px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.bannersubtitle{
+	font-size: 30px;
+}
+
+
+
+
+
+
+/****************************************
+Content
+****************************************/
+
+.contentcontainer{
+	text-align: center;
+}
+
+.section1{
+	padding:30px;
+}
+
+.blurbcontainer{
+	background:#eee;
+	margin-top:20px;
+	min-height: 200px;
+}
+
+.zerofont{
+	font-size: 0px;
+}
+
+.sidebyside{
+	font-size: 20px;
+	background: #f00;
+	min-height: 200px;
+}
+
+.sbsalternate{background: #a00;}
+
+
+
+
+
+
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media (min-width:800px) {
+
+	.blurbcontainer{
+		width: 240px;
+		display: inline-block; zoom:1; *display: inline;
+	}
+
+	.sidebyside{
+		width: 33.3333%;
+		display: inline-block; zoom:1; *display: inline;
+	}
+}
+
+</style>
+
+</head>
+<body>
+<div class="wholepagecontainer">
+
+	<!-- ***************************************
+		Top menu bar
+	*************************************** -->
+
+	<div id="menubar">
+		<div id="logocontainer">
+			Logo here
+		</div>
+		<div id="hamburger">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+
+	
+
+	
+
+
+
+
+	<!-- ***************************************
+		Banner
+	*************************************** -->
+
+	<div class="bannercontainer">
+		<div class="bannercontent">
+			BANNER
+			<div class="bannersubtitle">Subtitle goes here and here</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- ***************************************
+		Content
+	*************************************** -->
+
+	<div class="contentcontainer">
+		<div class="section1">
+			Content goes here and here and here and here and here and here
+			and here and here and here and here and here and here
+			<br>
+			<div class="blurbcontainer">Blurb divs</div>
+			<div class="blurbcontainer">Blurb divs</div>
+			<div class="blurbcontainer">Blurb divs</div>
+		</div>
+
+		<div class="zerofont">
+			<div class="sidebyside">Side by side divs</div>
+			<div class="sidebyside sbsalternate">Side by side divs</div>
+			<div class="sidebyside">Side by side divs</div>
+		</div>
+	</div>
+
+
+</div>
+
+
+<div id="mainmenu">
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+	<a href="#">Test link</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+$(document).ready(function(){
+
+	var maxmenuwidth = '80%';
+	var menuwidth = maxmenuwidth;
+	$('#hamburger').click(function(){
+
+		$('.wholepagecontainer').animate({marginLeft: '-'+menuwidth });
+		$('#mainmenu').animate({width: menuwidth });
+		if(menuwidth==maxmenuwidth){menuwidth='0px'}
+		else {menuwidth = maxmenuwidth;}
+	});
+});
+
+/*
+window.onload = function(){yb.id('mainmenu').style.display = 'none';};
+yb.id('hamburger').onclick = function(){
+	yb.id('mainmenu').style.display=='none' ? yb.id('mainmenu').style.display = 'block' : yb.id('mainmenu').style.display = 'none'
+};*/
+</script>
+</body>
+</html>

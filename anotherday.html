@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:'Comic Sans MS';
+	color:#fff;
+	background: red;
+}
+
+.maintext{
+	padding-top: 280px;
+	font-size: 60px;
+	text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div class="maintext">
+Another day in paradise
+</div>
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+var c = ['red','orange','yellow','green','blue','purple'];
+var i=0;
+
+var bginterval = setInterval(function(){
+	i++;
+	if(i>=c.length){i=0;}
+	document.body.style.background = c[i];
+	document.body.style.color = i==2 ? '#333': '#fff';
+},100);
+
+</script>
+</body>
+</html>

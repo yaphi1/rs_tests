@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media (min-width:800px) {
+}
+
+</style>
+
+</head>
+<body>
+
+Results (setTimeout):
+<div id="result">
+</div>
+
+
+<br><br><br>
+Results (real version):
+<div id="resultreal">
+</div>
+
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+
+// the visual version
+
+var cards = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
+var times = 0;
+var totaltimes = 20;
+
+var shuffleinterval = setInterval(function(){
+	var rand = Math.floor(Math.random()*cards.length);
+	cards.push(cards[rand]);
+	cards.splice(rand,1);
+	yb.id('result').innerHTML = cards;
+	times++;
+	if(times>=totaltimes){clearInterval(shuffleinterval); yb.id('result').innerHTML += '<br>Complete';}
+}, 50);
+
+
+
+// the real version
+
+function shuffle(deck, iterations){
+	for(var i=0; i<iterations; i++){
+		var rand = Math.floor(Math.random()*deck.length);
+		deck.push(deck[rand]);
+		deck.splice(rand,1);
+	}
+	return deck;
+}
+
+var deck = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
+yb.id('resultreal').innerHTML = shuffle(deck,50);
+
+
+
+</script>
+</body>
+</html>

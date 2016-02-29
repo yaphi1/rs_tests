@@ -1,0 +1,30 @@
+<html>
+
+
+<div id="hello" style="width:100px; height:100px; border:1px solid #333;">
+</div>
+<div>
+	<div></div>
+	<span></span>
+	<div></div>
+	<span></span>
+	<ul>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+	</ul>
+</div>
+
+<script>
+var yb = {
+	id : function(str){ return document.getElementById(str); }
+}
+yb.id('hello').onclick = function(){alert('Hello'); this.innerHTML = 'Hello';};
+</script>
+
+
+</html>

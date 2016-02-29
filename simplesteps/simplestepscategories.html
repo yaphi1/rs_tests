@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<title>Category Test</title>
+
+<link rel="stylesheet" type="text/css" href="simplesteps.css">
+</head>
+<body>
+
+<div id="menubar"><a href="/">Simple Steps Code</a></div>
+<section id="content" role="main">
+<div class="masthead">
+	<h1>Category Test</h1>
+</div>
+
+
+
+
+</section>
+
+
+<div class="contentwidth signupsection">
+	<div class="enjoyedthis">
+		Did you enjoy this?
+	</div>
+	<p>If yes, don't panic. Here's what to do next.</p>
+
+	<div class="signupform">
+		<div class="signupcopy">
+			<div class="gettutorials">Get tutorials and inspiration</div>
+			<ul class="bluechecks">
+				<li><span>&check;</span> improve your coding skills</li>
+				<li><span>&check;</span> get better jobs and salaries</li>
+				<li><span>&check;</span> have more freedom to create what you want</li>
+			</ul>
+		</div>
+		<!-- Begin MailChimp Signup Form -->
+		<form action="http://blinkdash.us9.list-manage.com/subscribe/post?u=cf6125d07d2da4bcb868629d4&amp;id=271f6daf1b" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			<div class="zerofont">
+				<input type="text" value="" name="FNAME" class="required" placeholder="First Name">
+				<input type="email" value="" name="EMAIL" class="required email" placeholder="Email">
+			</div>
+			<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+		    <div style="position: absolute; left: -5000px;"><input type="text" name="b_cf6125d07d2da4bcb868629d4_271f6daf1b" tabindex="-1" value=""></div>
+		    <button type="submit" name="subscribe" class="signupbutton">Get Free Tutorials and Inspiration</button>
+		    <div class="nospam">
+		    	I absolutely hate spam, so you won't be receiving any. Also, your info is 100% private. If you're not happy for any reason, you can unsubscribe at any time.  I'll do my best to keep everything interesting and useful though.
+		    </div>
+		</form>
+		<!--End mc_embed_signup-->
+	</div>
+
+</div>
+
+<div class="copyright">
+	Copyright &copy; <span id="copyyear">2014</span> Simple Steps Code
+</div>
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+yb.id('copyyear').innerHTML = new Date().getFullYear();
+
+
+var codetags = document.getElementsByTagName('code');
+
+for(var i=0; i<codetags.length; i++){
+	formatCode(codetags[i]);
+}
+
+function formatCode(code){
+
+	code.innerHTML = code.innerHTML
+					// replace html brackets with html entities
+					.replace(/</g, '&lt;')
+					.replace(/>/g, '&gt;')
+					
+					// add indents after starting tags (but not single tags)
+					.replace(/(&lt;[^\/;]+&gt;)\n/g, function(v){
+						return v.search(/&lt;(img|br|input)/gi)>-1 ? v : v+'<div class="indent">';
+					})
+
+					// end indentation divs
+					.replace(/\n\s*&lt;\//g, '</div>&lt;\/')
+
+					// color the html tags
+					.replace(/&lt;/g, '<span class="tag">&lt;')
+					.replace(/&gt;/g, '&gt;</span>')
+
+					// get rid of the first line break
+					.replace(/^\n/, '')
+					
+					// replace subsequent line breaks with <br>
+					.replace(/\n/g, '<br>')
+
+					// color the css properties
+					.replace(/[\w-]+(?=:)(?!(:[\w-\s]+\{))/gim, function(v){return '<span class="cssproperty">'+v+'</span>'})
+
+					// color the css classes and ids
+					.replace(/\.(?=[^{]*{)/g, '<span class="cssclass">.')
+					.replace(/\#(?=[^{]*{)/g, '<span class="cssclass">#')
+					.replace(/\{/g, '</span>{')
+
+					// indent the css styles
+					.replace(/\{<br>/g, '{<div class="indent">')
+					.replace(/\}/g, '</div>}')
+
+					// style css comments
+					.replace(/\/\*/g, '<span class="csscomment">/*')
+					.replace(/\*\//g, '*/</span>')
+					;
+}
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-22685293-3', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

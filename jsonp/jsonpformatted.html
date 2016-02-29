@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSONP test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+.results{
+	padding: 10px;
+	background: #3ad;
+	display: inline-block;
+	width: 400px;
+	margin-bottom: 3px;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<input type="text" id="input">
+<br><br>Raw data: <div id="output"></div>
+<br>Formatted data: <div id="formattedoutput"></div>
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+// this function handles the data
+var ybJSONP = function(json){
+	yb.id('output').innerHTML = JSON.stringify(json); // raw data
+
+	// formatted data
+	var results = '';
+	for(var i=0; i<json[1].length; i++){
+		results += '<div class="results">'+json[1][i][0]+'</div><br>';
+	}
+	yb.id('formattedoutput').innerHTML = results;
+}
+
+// this variable will hold the script tag that will call the jsonp
+var tag = '';
+
+function suggest(searchterm){
+	if(tag!=''){document.body.removeChild(tag)} // get rid of existing script tag (so we don't flood the document)
+	tag = document.createElement('script'); // create new script tag and set src with the autocomplete data
+	tag.setAttribute('src','http://suggestqueries.google.com/complete/search?q='+searchterm+'&hl=en&client=hp&callback=ybJSONP');
+	document.body.appendChild(tag);
+}
+
+yb.id('input').onkeyup = function(){suggest(this.value)};
+
+
+</script>
+</body>
+</html>

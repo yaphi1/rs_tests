@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:35px;
+	font-family:sans-serif;
+	color:#333;
+	text-align: center;
+	font-weight: 100;
+}
+
+button, input{
+	padding: 15px;
+	font-size: 30px;
+}
+
+</style>
+
+</head>
+<body>
+
+<p>Enter rsi url:</p>
+<input type="text" id="rsiurl">
+<br><br>
+<button id="getprice">Get Price</button>
+
+<br><br><br>
+Price:
+<span id="output"></span>
+
+<br><br>
+5-Pay Price:
+<span id="5pay"></span>
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+/************************************************************
+remember to handle sitewide and non-rsi urls
+*************************************************************/
+
+function rsiPrice(url){
+	var key = 'oabcdefghi';
+	var price_letters = url.slice(-3).toLowerCase();
+	var price = '';
+	for(var i=0; i<price_letters.length; i++){
+		price += ''+key.search(price_letters[i]);
+	}
+	return price;
+}
+
+function outputPrices(){
+	yb.id('output').innerHTML = rsiPrice(yb.id('rsiurl').value);
+	yb.id('5pay').innerHTML = (rsiPrice(yb.id('rsiurl').value)/5).toFixed(2);
+}
+
+
+yb.id('getprice').onclick = function(){
+	outputPrices();
+}
+
+yb.id('rsiurl').onkeyup = function(e){
+	if(e.keyCode==13){
+		outputPrices();
+	}
+}
+
+
+</script>
+</body>
+</html>

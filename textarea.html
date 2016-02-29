@@ -1,0 +1,37 @@
+<html>
+<head>
+<title></title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+textarea{
+	width: 200px;
+	height: 100px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 0px;
+}
+</style>
+</head>
+<body>
+
+<textarea></textarea>
+<br>
+<input type="checkbox">
+<input type="radio" autocomplete="off">
+
+<div id="testdiv">Test div</div>
+<div id="output"></div>
+<div id="output2"></div>
+
+<script>
+document.getElementById('testdiv').ontouchend = function(){
+	document.getElementById('output').innerHTML = 'touch detected';
+};
+
+document.getElementById('output2').innerHTML = typeof document.onmousedown;
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+	text-align: center;
+}
+
+.mydiv{
+	background: lightgreen;
+	transform: rotate(15deg);
+	transition: transform 0.5s linear;
+	width: 200px;
+	height: 300px;
+	margin-bottom: 100px;
+}
+.mydiv:hover{
+	transform: rotate(-90deg) rotateY(70deg);
+}
+
+
+
+#hamburger{
+	display: inline-block;
+	width:50px;
+	position: relative;
+}
+
+.hamline{
+	height: 5px;
+	width: 100%;
+	background: orange;
+	transition: 0.2s linear;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	position: relative;
+	top: 0px;
+	transform-origin: 50% 50%;
+}
+
+#hamburgermiddle{
+	/*transition: opacity 0.2s linear;*/
+}
+
+#hamburger1{}
+
+#hamburger2{
+	margin-bottom: 0px;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div class="mydiv">content goes here</div>
+
+<div id="hamburger">
+	<div id="hamburger1" class="hamline"></div>
+	<div id="hamburgermiddle" class="hamline"></div>
+	<div id="hamburger2" class="hamline"></div>
+</div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+var open = false;
+
+yb.id('hamburger').onclick = function(){
+	if(open==false){go_x(); open=true;}
+	else{go_ham(); open=false;}
+};
+
+function go_x(){
+	yb.id('hamburgermiddle').style.opacity = '0';
+	// yb.id('hamburgermiddle').style.transform = 'rotate(45deg) translate(-4px, 5px)';
+	
+	yb.id('hamburger1').style.transform = 'rotate(45deg)';
+	yb.id('hamburger1').style.top = '15px';
+
+	yb.id('hamburger2').style.transform = 'rotate(-45deg)';
+	yb.id('hamburger2').style.top = '-15px';
+}
+function go_ham(){
+	yb.id('hamburgermiddle').style.opacity = '1';
+	// yb.id('hamburgermiddle').style.transform = '';
+
+	yb.id('hamburger1').style.transform = '';
+	yb.id('hamburger1').style.top = '0px';
+
+	yb.id('hamburger2').style.transform = '';
+	yb.id('hamburger2').style.top = '0px';
+}
+
+</script>
+</body>
+</html>

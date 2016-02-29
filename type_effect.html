@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family: courier;
+	color:#333;
+}
+</style>
+
+</head>
+<body>
+
+
+<div id="output"></div>
+<div id="output2"></div>
+
+<script>
+function type(id,message,interval){
+	var output = document.getElementById(id);
+	var i = 0;
+	var timeinterval = setInterval(function(){
+		output.innerHTML += message[i];
+		i++;
+		if(i===message.length){clearInterval(timeinterval);}
+	},interval);
+}
+type('output','hello world, this is a test of the typing script',40);
+
+type('output2','this is output slot 2',80);
+</script>
+</body>
+</html>

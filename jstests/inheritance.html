@@ -1,0 +1,89 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+
+// basic prototypal inheritance
+
+var car = {
+	color: 'blue',
+	size: 'big',
+	position: 0,
+	go: function(){this.position++;}
+}
+
+var test_car = Object.create(car);
+
+car.additions = 'yes';
+
+test_car.go();
+
+var o = document.getElementById('output');
+o.innerHTML = JSON.stringify(test_car);
+
+
+
+
+
+// an example with a creation function
+
+var circle = {
+	radius: 5,
+	create: function(radius){
+		var createdCircle = Object.create(this);
+		createdCircle.radius = radius;
+		return createdCircle;
+	},
+	area: function(){
+		return Math.PI * this.radius * this.radius;
+	}
+};
+
+var circle2 = circle.create(3);
+
+/*
+benefits of prototypal inheritance:
+	- flexible: you can add new properties to prototypes at any time whereas classes are stuck with original definition
+*/
+
+
+
+var item = {
+	price: 0,
+	create: function(name,price){
+		var createdItem = Object.create(this);
+		createdItem.name = name;
+		createdItem.price = price;
+		return createdItem
+	}
+};
+
+
+var ball = item.create('ball',20);
+
+
+o.innerHTML += '<br><br>Item Name: '+ball.name
+			+'<br>Item Price: '+ball.price;
+
+
+item.discountPercent = 20;
+item.discountedPrice = function(){
+	return ( 100 - this.discountPercent )/100 * this.price;
+};
+
+
+o.innerHTML += '<br><br>Discounted Price: '+ball.discountedPrice();
+
+
+var merch = [];
+
+
+</script>
+</body>
+</html>

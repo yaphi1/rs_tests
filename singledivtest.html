@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>1UP Mushroom</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+	background: #555;
+	text-align: center;
+}
+
+
+.mushroom{
+	position: relative;
+	margin-top: 200px;
+	display:inline-block;
+	width:180px;
+	height:150px;
+	border-radius: 180px 180px 100px 100px;
+	background: #0f8;
+	background: 
+				radial-gradient(circle at 50% 31%, white 5%, #eafaf0 28%, rgba(0,0,0,0) 28%),
+				radial-gradient(circle at -25% 40%, white 5%, #eafaf0 25%, rgba(0,0,0,0) 25%),
+				radial-gradient(circle at 125% 40%, white 5%, #eafaf0 25%, rgba(0,0,0,0) 25%),
+				linear-gradient(to bottom, #0f8 20%, #052 100%);
+}
+
+.mushroom:before{
+	content: '';
+	display: block;
+	width: 100px;
+	height:80px;
+	position: absolute;
+	left: 40px;
+	bottom:-35px;
+	background: #fa7;
+	border-radius: 40%;
+	box-shadow: 2px 2px 30px 2px #332 inset, 0px 0px 20px 0px #444;
+}
+
+.mushroom:after{
+	content: '';
+	display: block;
+	width: 5px;
+	height:25px;
+	position: absolute;
+	left: 40px;
+	bottom:-5px;
+	background: transparent;
+	border-radius: 40px;
+	box-shadow: 33px 0px 0px 2px #333, 62px 0px 0px 2px #333;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="mushroom"></div>
+<!-- Important note: Credit goes to http://a.singlediv.com/ for teaching me how to do this.  Check out their stuff.  It's amazing! -->
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div></div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+
+
+var ybrtoexpire = new Date((new Date()).getTime()+(365*24*60*60*1000)).toUTCString();
+document.cookie="yaphi=woohoo; expires=Thu, 18 Dec 2014 12:00:00 UTC; path=/";
+
+
+function cookieValue(cookiename){
+	return document.cookie.match(cookiename) ?
+		document.cookie.split(cookiename+'=')[1].split(';')[0] : null;
+}
+
+function delete_rto_cookie(cookiename){
+	document.cookie="yaphi=true; expires=Thu, 18 Dec 2000 12:00:00 UTC; path=/";
+}
+
+console.log(cookieValue('yaphi'));
+
+
+</script>
+</body>
+</html>

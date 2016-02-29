@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+
+#clockholder{
+	background: #1f1f1f;
+	padding: 10px;
+	text-align: center;
+	display: none;
+}
+
+.saleends{
+	color: #e5b93b;
+	font-size: 14px;
+	font-style: italic;
+	padding-right: 5px;
+}
+
+#clock{
+	position: relative;
+	background: #444;
+	color: #e5b93b;
+	font-size: 0px;
+	display: inline-block;
+	border-radius: 2px;
+	border: 1px solid #000;
+	border-bottom: 1px solid #222;
+	box-shadow: 0px -35px 25px -15px rgba(22,22,22,0.5) inset;
+	/*float: right;*/
+}
+
+#clock .clockdiv{
+	font-size: 10px;
+	display: inline-block;
+	border-right: 1px solid #111;
+	border-left: 1px solid #333;
+	padding: 4px 12px;
+	font-weight: bold;
+}
+#clock .clockdiv-last{
+	border-right: 0px;
+}
+
+.timenumber{
+	font-size: 15px;
+}
+
+.clockshadow{
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 55%;
+	background: rgba(33,33,33,0.3);
+}
+
+
+
+
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media (min-width:800px) {
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="clockholder">
+	<span class="saleends">Sale Ends</span>
+	<div id="clock">
+		<div class="clockdiv"><span class="timenumber" id="clockhours">12</span> hrs</div>
+		<div class="clockdiv"><span class="timenumber" id="clockminutes">45</span> min</div>
+		<div class="clockdiv clockdiv-last"><span class="timenumber" id="clockseconds">53</span> sec</div>
+		<div class="clockshadow"></div>
+	</div>
+</div>
+
+<div id="resulttest"></div>
+<script>
+
+if(window.location.href.indexOf('?ed=')>-1){
+	var yb = { id : function(str){return document.getElementById(str)} };
+
+	function endDate(){
+		yb.id('clockholder').style.display = 'block';
+		var eddate = window.location.href.split('ed=')[1].split('&')[0].substr(2,6);
+		var edyear = '20'+eddate.substr(0,2);
+		var edmonth = +eddate.substr(2,2)-1;
+		var edday = +eddate.substr(4,2)+1;
+		return new Date(edyear,edmonth,edday,0,0,0,0);
+	}
+	
+	function setClock(){
+		var newtime = new Date((targettime.getTime()-((new Date()).getTime())));
+		//yb.id('resulttest').innerHTML = newtime.getHours()+':'+newtime.getMinutes()+':'+newtime.getSeconds();
+		yb.id('clockseconds').innerHTML = newtime.getSeconds();
+		yb.id('clockminutes').innerHTML = newtime.getMinutes();
+		yb.id('clockhours').innerHTML = Math.floor(newtime/1000/60/60);//.getHours();
+		if(newtime.getHours()==0 && newtime.getMinutes()==0 && newtime.getSeconds()==0){clearTimeout(clockinterval)}
+	}
+	
+	yb.id('clockholder').style.display = 'block';
+	
+	var targettime = endDate();
+	setClock();
+	var clockinterval = setInterval(setClock,1000);
+}
+
+</script>
+</body>
+</html>

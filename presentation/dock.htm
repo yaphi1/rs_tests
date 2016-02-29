@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dock Simulator</title>
+<style type="text/css">
+body{
+font-family:sans-serif;
+font-size:20px;
+color:#333;
+}
+
+#dock{
+position:fixed;
+bottom:0px;
+left:0px;
+height:150px;
+padding:10px 30px;
+border:0px solid #333;
+width:100%;
+text-align:center;
+z-index:11;
+}
+
+.dockplaceholder{
+height:120px;
+width:1px;
+display:inline-block;
+margin-right:-50px;
+}
+
+#dockfloor{
+position:fixed;
+bottom:0px;
+left:0px;
+height:70px;
+background:#eee;
+z-index:10;
+width:100%;
+}
+
+.dockdiv{
+display:inline-block; zoom:1; *display:inline;
+height:60px;
+width:60px;
+margin:0px 20px;
+background:#fafafa;
+opacity:0.6;
+border-radius:5px;
+box-shadow:0px 5px 10px -1px #245;
+}
+
+.dockdiv img{
+width:100%;
+height:100%;
+}
+</style>
+</head>
+<body>
+<div id="debug"></div>
+<div id="dockfloor"></div>
+<div id="dock"><div class="dockplaceholder"></div></div>
+
+<script>
+window.onload = fillDock;
+
+function id(str){return document.getElementById(str);} //abbreviate getElementId for quicker use
+
+var icons = ['','','','','','','','','','']; //place icon images here
+var size = 60;
+var maxSize = 120;
+
+function fillDock(){
+	for(var i=0; i<icons.length; i++){
+		id('dock').innerHTML += '<a href="#" class="dockdiv" id="dockitem'+i+'"></a>';
+	}
+}
+
+window.onmousemove = moveMouse;
+
+function moveMouse(e){
+	var x = e.pageX;
+	var y = e.pageY;
+	
+	id('debug').innerHTML = '<br>x: '+x+'<br>y: '+y;
+	
+	//resize dock items based on position of mouse
+	for(var i=0; i<icons.length; i++){
+		//x position of the center of the current icon
+		var currentSize = maxSize - .3*Math.abs( x - (id('dockitem'+i).offsetLeft+maxSize/2) );
+		var dockPos = id('dock').offsetTop; //y position of the dock
+		
+		if(y<dockPos){currentSize -= dockPos - y;}
+		if(currentSize<size){currentSize=size}
+		if(currentSize>maxSize){currentSize=maxSize}
+		id('dockitem'+i).style.width = currentSize + 'px';
+		id('dockitem'+i).style.height = currentSize + 'px';
+	}
+}
+</script>
+</body>
+</html>

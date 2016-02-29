@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Clock test</title>
+</head>
+<body>
+
+Minutes: <span id="clockminutes"></span>
+<br>Seconds: <span id="clockseconds"></span>
+
+<script>
+var countdown_minutes = 10; // set how many minutes we want the clock to run for
+var endtime = new Date( new Date().getTime() + countdown_minutes*60*1000 ); // calculate the javascript end time
+setClock(); // start the clock
+var clockinterval = setInterval(setClock,50); // keep the clock running
+function setClock(){
+	var timeleft = new Date( endtime - (new Date()) ); // remaining time is end time minus current time
+	document.getElementById('clockseconds').innerHTML = timeleft.getSeconds();
+	document.getElementById('clockminutes').innerHTML = timeleft.getMinutes();
+	if(Math.floor(timeleft/1000)<=0){ clearInterval(clockinterval); } // stop clock
+}
+</script>
+</body>
+</html>

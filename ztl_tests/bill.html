@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="output"></div>
+<script>
+function tip(bill, percent){
+	var result = bill * (percent/100);
+	return result;
+}
+
+var myBill = 25;
+var tipPercent = 20;
+
+var message = "The bill is $" + myBill
+	+ " and the tip is $" + tip(myBill, tipPercent);
+
+document.getElementById('output').innerHTML = message;
+</script>
+
+</body>
+</html>

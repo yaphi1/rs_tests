@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="iddiv">ID div</div>
+
+<br><br>
+<div class="classdiv">Class div</div>
+<br>
+<div class="classdiv">Class div</div>
+<br>
+<div class="classdiv">Class div</div>
+
+
+<script>
+
+(function(){
+	var p = {
+		highlight: function(bg,fg){
+			for(var i=0; i<this.length; i++){
+				this[i].style.backgroundColor = bg || 'yellow';
+				this[i].style.color = fg || '#333';
+			}
+		},
+		spin: function(d){
+			if(typeof(d)!=='number'){d=45;}
+			for(var i=0; i<this.length; i++){
+				this[i].style.transition = 'transform 1s';
+				this[i].style.transform = 'rotate('+d+'deg)';
+			}
+		}
+	};
+	window.y = function(q){
+		var elems = document.querySelectorAll(q);
+		var obj = Object.create(p);
+		for(var i=0; i<elems.length; i++){
+			obj[i] = elems[i];
+		}
+		obj.context = this;
+		obj.selector = q;
+		obj.length = elems.length;
+		return obj;
+	};
+})();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>Button test</title>
+</head>
+<body>
+
+<button id="mybutton">Click here</button>
+
+<div id="mydiv"></div>
+
+<script>
+
+document.getElementById('mybutton').onclick = function(){
+	//alert('clicked');
+	document.getElementById('mydiv').innerHTML = '<h1>it worked</h1>';
+
+	document.getElementById('mydiv').style.background = 'red';
+};
+
+
+
+</script>
+</body>
+</html>

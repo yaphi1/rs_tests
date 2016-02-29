@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+Inner:
+<script>
+document.write(window.location.href);
+//document.write(test);
+document.write('<br><br>referrer: '+document.referrer);
+
+document.write('<br><br>outer context (parent): '+parent.window.location.href);
+</script>
+
+</body>
+</html>

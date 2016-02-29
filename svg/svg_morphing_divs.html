@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+.wave_svg{
+
+	-webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+
+	-webkit-transform-origin: 0px 0px;
+	transform-origin: 0px 0px;
+
+	width: 100%;
+}
+
+.wave_div{
+	position:absolute; left:0%; top:100%; width:100%; height:50%;
+
+	transform: rotateY(0deg) scaleY(0);
+	-webkit-transform: rotateY(0deg) scaleY(0);
+
+
+	-webkit-transform-origin: 50% 0px;
+	transform-origin: 50% 0px;
+}
+
+.move_wave_white{
+	-webkit-animation: wave_animation 0.29s linear 0s infinite alternate;
+	animation: wave_animation 0.29s linear 0s infinite alternate;
+}
+
+.move_wave_green{
+	-webkit-animation: wave_animation 0.21s linear 0s infinite alternate;
+	animation: wave_animation 0.21s linear 0s infinite alternate;
+}
+
+.move_wave_gold{
+	-webkit-animation: wave_animation 0.25s linear 0s infinite alternate;
+	animation: wave_animation 0.25s linear 0s infinite alternate;
+}
+
+.move_wave_black{
+	-webkit-animation: wave_animation 0.27s linear 0s infinite alternate;
+	animation: wave_animation 0.27s linear 0s infinite alternate;
+}
+
+
+@keyframes wave_animation{
+	0% { transform: rotateY(0deg) scaleY(1); }
+	49.9% { transform: rotateY(0deg) scaleY(0); }
+	50% { transform: rotateY(180deg) scaleY(0); }
+	100% { transform: rotateY(180deg) scaleY(1); }
+}
+
+@-webkit-keyframes wave_animation{
+	0% { -webkit-transform: rotateY(0deg) scaleY(1); }
+	49.9% { -webkit-transform: rotateY(0deg) scaleY(0); }
+	50% { -webkit-transform: rotateY(180deg) scaleY(0); }
+	100% { -webkit-transform: rotateY(180deg) scaleY(1); }
+}
+
+</style>
+
+</head>
+<body>
+
+
+Svg morphing
+
+<br><br><br>
+
+<div style="width:150px; height:150px; background:#333; border-radius:3px; position:relative;">
+	
+	<!-- white wave -->
+	<div id="white_wave" class="wave_div">
+		<svg id="white_wave_svg" class="wave_svg" viewBox="0 0 100 50">
+			<path style="stroke:none; fill:rgba(255, 255, 255, 0.8);" d="M0,0 Q17.2,2,29.5,26 Q42,48,54,22 Q69.5,-5,85.2,13.8 Q92,20,100,6 L100,0"></path>
+		</svg>
+	</div>
+
+	<!-- green wave -->
+	<div id="green_wave" class="wave_div">
+		<svg id="green_wave_svg" class="wave_svg" viewBox="0 0 100 50">
+			<path style="stroke:none; fill:rgba(115, 193, 18, 0.8);" d="M0,0 Q6,4,10,14 Q22,44,34.5,20 Q45.5,-2,58,14 Q73.75,33.5,86,14 Q94,2,100,0"></path>
+		</svg>
+	</div>
+
+</div>
+
+<br><br><br>
+
+<button id="start" style="position:relative; z-index:1000;">Start</button>
+<button id="stop" style="position:relative; z-index:1000;">Stop</button>
+
+
+
+
+
+
+
+<div style="width:350px; height:150px; background:#eee; border-radius:3px; position:relative;">
+	<!-- gold wave -->
+	<div id="gold_wave" class="wave_div">
+		<svg id="gold_wave_svg" class="wave_svg" viewBox="0 0 100 50">
+			<path style="stroke:none; fill:rgba(255, 166, 0, 0.8);" d="M0,0 Q17.2,2,29.5,26 Q42,48,54,22 Q69.5,-5,85.2,13.8 Q92,20,100,6 L100,0"></path>
+		</svg>
+	</div>
+
+	<!-- black wave -->
+	<div id="black_wave" class="wave_div">
+		<svg id="black_wave_svg" class="wave_svg" viewBox="0 0 100 50">
+			<path style="stroke:none; fill:rgba(33, 33, 33, 0.8);" d="M0,0 Q6,4,10,14 Q22,44,34.5,20 Q45.5,-2,58,14 Q73.75,33.5,86,14 Q94,2,100,0"></path>
+		</svg>
+	</div>
+</div>
+
+
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+
+
+yb.id('start').onclick = function(){
+	console.log('start');
+	
+	yb.id('white_wave').className = 'wave_div move_wave_white';
+	yb.id('green_wave').className = 'wave_div move_wave_green';
+
+	yb.id('gold_wave').className = 'wave_div move_wave_gold';
+	yb.id('black_wave').className = 'wave_div move_wave_black';
+
+};
+
+
+yb.id('stop').onclick = function(){
+	console.log('stop');
+	
+	yb.id('white_wave').className = 'wave_div';
+	yb.id('green_wave').className = 'wave_div';
+	yb.id('gold_wave').className = 'wave_div';
+	yb.id('black_wave').className = 'wave_div';
+
+};
+
+
+
+</script>
+</body>
+</html>

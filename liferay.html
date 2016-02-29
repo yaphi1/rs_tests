@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+	font-weight: 100;
+	text-align: center;
+}
+
+#button{
+	background-color: #37a;
+	color: white;
+	padding: 20px 30px;
+	display: inline-block;
+	font-size: 25px;
+	border-radius: 3px;
+}
+
+h1{
+	padding-top: 150px;
+	padding-bottom: 50px;
+	font-weight: 100;
+	font-size: 50px;
+	margin: 0px;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<h1>Using Liferay is easy.</h1>
+
+<div id="button">Get started now!</div>
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+yb.id('button').onmouseover = function(){
+	this.style.position = 'fixed';
+	this.style.top = Math.floor(Math.random()*80)+'%';
+	this.style.left = Math.floor(Math.random()*80)+'%';
+};
+</script>
+</body>
+</html>

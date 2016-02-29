@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+	/*background: #3ad;*/
+}
+
+#mainbuttoncontainer{
+	background: #eee;
+	padding: 30px;
+	text-align: center;
+}
+
+#mainbuttoncontainer button{
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px 30px;
+	font-size: 25px;
+	font-weight: 100;
+	background: #444;
+	color: #fff;
+	cursor: pointer;
+	margin: 10px;
+}
+
+#mainbuttoncontainer button:hover{
+	background: #555;
+}
+
+#mainbuttoncontainer input{
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px 30px;
+	font-size: 25px;
+	font-weight: 100;
+	background: #ddd;
+	color: #444;
+	margin: 10px;
+}
+
+
+#items{
+	text-align: center;
+}
+
+.itemcontainer{
+	background: #444;
+	padding: 20px;
+	border-radius: 5px;
+	display: inline-block;
+	margin: 30px;
+	cursor: pointer;
+}
+
+.itemcontainer:hover{
+	box-shadow: 0px 0px 7px -3px #555;
+}
+
+.itemcontentbox{
+	box-sizing: border-box;
+	height: 200px;
+	width: 250px;
+	padding: 20px;
+	background: #fff;
+	text-align: center;
+	font-size: 35px;
+	display: table;
+}
+
+.itemcontent{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div id="mainbuttoncontainer">
+	<button>All</button>
+	<button>Games</button>
+	<button>Books</button>
+	<button>Electronics</button>
+	<br>
+	<input type="text" placeholder="enter search terms here" id="searchbar" autocomplete="off" value="">
+</div>
+
+<div id="items"></div>
+
+<script>
+var yb = {
+	id : function(str){return document.getElementById(str)},
+	cl : function(str){return document.getElementsByClassName(str)}
+};
+
+var data = [
+	{"content":"Chess", "color":"red", "tags":"games"}
+	,{"content":"Zelda", "color":"orange", "tags":"games,electronics"}
+	,{"content":"Harry Potter", "color":"gold", "tags":"books"}
+	,{"content":"Gigantic TV", "color":"#444", "tags":"electronics"}
+	,{"content":"Heroes of Olympus", "color":"green", "tags":"books"}
+	,{"content":"item 6", "color":"blue", "tags":"games"}
+	,{"content":"item 7", "color":"violet", "tags":"games"}
+	,{"content":"item 8", "color":"red", "tags":"games"}
+];
+
+
+function createItems(){
+	yb.id('items').innerHTML = ''; // clear content area
+
+	for(var i=0; i<data.length; i++){
+		var itemhtml = '<div class="itemcontainer" style="background:'+data[i].color+'">'
+					+ '<div class="itemcontentbox">'
+					+ '<div class="itemcontent" style="color:'+data[i].color+'">'
+					+ data[i].content
+					+ '</div></div></div>';
+		yb.id('items').innerHTML += itemhtml;
+	}
+}
+
+createItems(); // populate the item list
+
+
+// show category results
+function showCategory(category){
+	for(var i=0; i<data.length; i++){
+		if( category.match(/all/i) || data[i].tags.match(RegExp(category,'i')) ){
+			yb.cl('itemcontainer')[i].style.display = 'inline-block';
+		}
+		else{ yb.cl('itemcontainer')[i].style.display = 'none'; }
+	}
+}
+
+// show search results
+function showSearch(searchterm){
+	var keywords = searchterm.replace(/ /g,'|');
+	for(var i=0; i<data.length; i++){		
+		if( data[i].content.match(RegExp(keywords,'i')) || data[i].tags.match(RegExp(keywords,'i')) ){
+			yb.cl('itemcontainer')[i].style.display = 'inline-block';
+		}
+		else{ yb.cl('itemcontainer')[i].style.display = 'none'; }
+	}
+}
+
+
+
+// handle category button clicks
+for(var i=0; i<yb.id('mainbuttoncontainer').getElementsByTagName('button').length; i++){
+	yb.id('mainbuttoncontainer').getElementsByTagName('button')[i].onclick = function(){
+		showCategory(this.innerHTML);
+	};
+}
+
+// handle search form
+yb.id('searchbar').onkeyup = function(k){
+	if( !String(k.keyCode).match(/^(38|40|37|39|16|18|24|32)$/) ){
+		showSearch(this.value);
+	}
+};
+
+</script>
+</body>
+</html>

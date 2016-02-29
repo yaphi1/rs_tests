@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+input{
+	border: 0px;
+	background: #eee;
+	padding: 0px 15px;
+	box-sizing:border-box;
+	font-size: 25px;
+	height:70px;
+}
+
+#titlebar{
+	font-weight: 100;
+	padding:20px;
+}
+
+#results{
+	background: #333;
+	height: 300px;
+	width: 100%;
+	text-align: center;
+	padding: 50px 0px;
+}
+</style>
+
+</head>
+<body>
+
+
+<div id="titlebar">Custom Backgrounds</div>
+<div id="results">
+<form action="parametertest.html" method="get">
+<input type="text" placeholder="background color" name="bg">
+<input type="submit" value="Submit">
+</form>
+</div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+if(window.location.href.indexOf('?')>-1){
+	var parampairs = window.location.href.replace('%23','#').split('?')[1].split('&');
+	var params = {};
+	for(var i=0; i<parampairs.length; i++){
+		params[parampairs[i].split('=')[0]] = parampairs[i].split('=')[1];
+	}
+
+	if(params.bg){ yb.id('results').style.background = params.bg; }
+}
+
+</script>
+</body>
+</html>

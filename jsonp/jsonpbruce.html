@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+<input type="text" id="inputbox">
+
+<div id="outputbox"></div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+
+var tag = '';
+yb.id('inputbox').onkeyup = function(){
+	if(tag!=''){document.body.removeChild(tag);}
+	tag = document.createElement('script');
+	tag.setAttribute('src','');
+	document.body.appendChild(tag);
+};
+
+tag = document.createElement('script');
+tag.setAttribute('src','');
+document.body.appendChild(tag);
+
+var handleMyData = function(data){
+	/*yb.id('outputbox').innerHTML = '';
+	for(var i=0; i<5; i++){
+		yb.id('outputbox').innerHTML += '<p><b>'+data[1][i]+'</b><br>'+data[2][i]+'</p>';
+	}*/
+	yb.id('outputbox').innerHTML = data.c;
+};
+
+</script>
+
+<script src="http://regex.nou.pe/json.php?callback=handleMyData"></script>
+
+<!-- <script src="http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=handleMyData&search=a"></script> -->
+</body>
+</html>

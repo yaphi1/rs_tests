@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+.contentwidth{
+	max-width: 800px;
+	margin: auto;
+}
+
+.responsive_window{
+	width:100%;
+	box-sizing:border-box;
+	margin-top: 50px;
+	background:#eee;
+	padding:5px;
+	padding-top: 10px;
+	border-radius: 5px;
+	text-align:center;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+
+	-webkit-animation: window_move 3s linear infinite alternate;
+	animation: window_move 3s linear infinite alternate;
+}
+
+@-webkit-keyframes window_move{
+	from{width:100%;}
+	to{width:50%;}
+}
+@keyframes window_move{
+	from{width:100%;}
+	to{width:50%;}
+}
+
+.window_circles{
+	position: absolute;
+	left: 5px;
+	top: 8px;
+}
+.window_circles span{
+	display:inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius:50%;
+	margin-left:5px;
+}
+
+.responsive_content{
+	margin-top: 5px;
+	min-height: 300px;
+	background: #fff;
+	text-align: center;
+}
+.responsive_content div{
+	box-sizing:border-box;
+	font-size: 40px;
+	padding: 20px;
+	text-align: center;
+}
+
+
+.block_100{
+}
+
+.block_50{
+	width:50%;
+	display:inline-block;
+	margin: auto;
+
+	-webkit-animation: snap50 3s linear infinite alternate;
+	animation: snap50 3s linear infinite alternate;
+}
+
+@-webkit-keyframes snap50{
+	0% {width:50%;}
+	49.99% {width:50%;}
+	50% {width:100%;}
+	100% {width:100%;}
+}
+@keyframes snap50{
+	0% {width:50%;}
+	49.99% {width:50%;}
+	50% {width:100%;}
+	100% {width:100%;}
+}
+
+
+.goldbg{ background: gold; }
+.redbg{ background:red; color:#fff; }
+.bluebg{ background:blue; color:#fff; }
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class="contentwidth">
+	<div class="responsive_window">
+		<div class="window_circles">
+			<span class="redbg"></span><span class="goldbg"></span><span style="background:#6e6;"></span>
+		</div>
+		Example window
+		<div class="responsive_content">
+			<div class="block_100 goldbg">1</div>
+			<div class="block_50 redbg">2</div><!--
+			--><div class="block_50 bluebg">3</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+</script>
+</body>
+</html>

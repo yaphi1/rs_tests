@@ -1,0 +1,26 @@
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+
+<div id="dragbox" style="width:100px; height:100px; background:orange; cursor:move; position:absolute;">
+	Drag this
+</div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+var box = yb.id('dragbox');
+
+box.addEventListener('mousedown', function(){
+	box.addEventListener('mousemove',function(e){
+		box.style.left = e.pageX-50 + 'px';
+	});
+});
+
+
+</script>
+</body>
+</html>

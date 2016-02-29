@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+
+Svg morphing
+
+<br><br><br>
+
+<div style="width:150px; height:150px; background:#333; border-radius:3px; position:relative;">
+	
+	<svg style="position:absolute; left:0px; bottom:0px; width:100%; height:50%; transform:rotateX(180deg);" viewBox="0 0 100 50">
+		<!--
+		<path style="stroke-width:0; stroke:green; fill:rgba(245,245,245,0.5); transform: translateX(14px) scaleY(0.5); transform-origin: 0px 300px;" d="M0,100 q15,-100,30,-30 q5,20,25,0 Q75,50,100,100">
+
+			<animate id="flatline_white" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 Q15,100,30,100 Q35,100,70,100 Q90,100,100,100" fill="freeze"></animate>
+			<animate id="bumps_white_0" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 q15,-100,30,-30 q5,20,25,0 Q75,50,100,100" fill="freeze"></animate>
+
+
+			<animate id="bumps_white_1" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 q15,-68,30,-30 q5,20,25,0 Q75,50,100,100" fill="freeze"></animate>
+
+			<animate id="bumps_white_2" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 q15,-60,30,-30 q10,20,25,-10 Q75,10,100,100" fill="freeze"></animate>
+		</path>
+
+
+
+		<path style="stroke-width:0; stroke:green; fill:rgba(100, 244, 126, 0.5); transform: translateX(-3px) scaleY(0.5); transform-origin: 0px 300px;" d="M0,100 q15,-100,30,-30 q5,20,25,0 Q75,50,100,100">
+
+			<animate id="flatline_green" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 Q15,100,30,100 Q35,100,70,100 Q90,100,100,100" fill="freeze"></animate>
+			<animate id="bumps_green_0" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 q15,-100,30,-30 q5,20,25,0 Q75,50,100,100" fill="freeze"></animate>
+
+
+			<animate id="bumps_green_1" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 q15,-68,30,-30 q5,20,25,0 Q75,50,100,100" fill="freeze"></animate>
+
+			<animate id="bumps_green_2" attributeName="d" begin="indefinite" dur="1500ms" to="M0,100 q15,-60,30,-30 q10,20,25,-10 Q75,10,100,100" fill="freeze"></animate>
+		</path>
+		-->
+
+
+		<!-- white wave -->
+		<path style="stroke:none; fill:rgba(255, 255, 255, 0.8);" d="M0,0 Q17.2,2,29.5,26 Q42,48,54,22 Q69.5,-5,85.2,13.8 Q92,20,100,6 L100,0">
+			<animate id="flatline_white" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q17.2,0,29.5,0 Q42,0,54,0 Q69.5,0,85.2,0 Q92,0,100,0 L100,0" fill="freeze"></animate>
+
+			<animate id="wave_white_0" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q17.2,2,29.5,26 Q42,48,54,22 Q69.5,-5,85.2,13.8 Q92,20,100,6 L100,0" fill="freeze"></animate>
+
+			<animate id="wave_white_1" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q17.2,2,28,26 Q42,60,58,22 Q69.5,-5,83,9 Q93,18.5,100,6 L100,0" fill="freeze"></animate>
+
+			<animate id="wave_white_2" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q17.2,2,32.5,26 Q42,38,53,22 Q69.5,-5,84.2,13.8 Q92,27,100,6 L100,0" fill="freeze"></animate>
+		</path>
+
+
+		<!-- green wave -->
+		<path style="stroke:none; fill:rgba(115, 193, 18, 0.8);" d="M0,0 Q6,4,10,14 Q22,44,34.5,20 Q45.5,-2,58,14 Q73.75,33.5,86,14 Q94,2,100,0">
+
+			<animate id="flatline_green" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q6,0,10,0 Q22,0,34.5,0 Q45.5,0,58,0 Q73.75,0,86,0 Q94,0,100,0" fill="freeze"></animate>
+
+			<animate id="wave_green_0" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q6,4,10,14 Q22,44,34.5,20 Q45.5,-2,58,14 Q73.75,33.5,86,14 Q94,2,100,0" fill="freeze"></animate>
+
+			<animate id="wave_green_1" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q6,4,10,10 Q22,30,36.5,10 Q45.5,-2,56,15 Q73.75,50,88,15 Q94,2,100,0" fill="freeze"></animate>
+
+			<animate id="wave_green_2" attributeName="d" begin="indefinite" dur="1500ms" to="M0,0 Q6,4,9,14 Q22,64,37,20 Q45.5,-2,64,14 Q73.75,23,82,14 Q94,2,100,0" fill="freeze"></animate>
+		</path>
+
+
+		<!-- green wave 1 -->
+		<!-- <path style="stroke:none; fill:rgba(255, 30, 18, 0.8);" d="M0,0 Q6,4,10,10 Q22,30,36.5,10 Q45.5,-2,56,15 Q73.75,50,88,15 Q94,2,100,0"></path> -->
+
+
+		<!-- green wave 2 -->
+		<!-- <path style="stroke:none; fill:rgba(255, 30, 18, 0.8);" d="M0,0 Q6,4,9,14 Q22,64,37,20 Q45.5,-2,64,14 Q73.75,23,82,14 Q94,2,100,0"></path> -->
+
+
+
+		<!-- white wave 1 -->
+		<!-- <path style="stroke:none; fill:rgba(255, 30, 18, 0.8);" d="M0,0 Q17.2,2,28,26 Q42,60,58,22 Q69.5,-5,83,9 Q93,18.5,100,6 L100,0"></path> -->
+
+
+		<!-- white wave 2 -->
+		<!-- <path style="stroke:none; fill:rgba(255, 30, 18, 0.8);" d="M0,0 Q17.2,2,32.5,26 Q42,38,53,22 Q69.5,-5,84.2,13.8 Q92,27,100,6 L100,0"></path> -->
+
+		
+		
+	</svg>
+
+</div>
+
+<br><br><br>
+
+<button id="start">Start</button>
+
+
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+yb.id('start').onclick = function(){
+	console.log('clicked');
+
+	// green waves
+	var wave_green = [yb.id('wave_green_0'),yb.id('wave_green_1'),yb.id('wave_green_2')];
+	var flatline_green = yb.id('flatline_green');
+	var total_wave_green = wave_green.length;
+
+	var dur_green = 110;
+
+	for(var i=0; i<total_wave_green; i++){
+		wave_green[i].setAttribute('dur',dur_green+'ms');
+	}
+	flatline_green.setAttribute('dur',dur_green+'ms');
+
+
+	// white waves
+	var wave_white = [yb.id('wave_white_0'),yb.id('wave_white_1'),yb.id('wave_white_2')];
+	var flatline_white = yb.id('flatline_white');
+	var total_wave_white = wave_white.length;
+
+	var dur_white = 150;
+
+	for(var i=0; i<total_wave_white; i++){
+		wave_white[i].setAttribute('dur',dur_white+'ms');
+	}
+	flatline_white.setAttribute('dur',dur_white+'ms');
+
+	
+	// animate
+	flatline_green.beginElement();
+
+	setInterval(function(){
+		var r = Math.floor(Math.random()*3);
+		wave_green[r].beginElement();
+		setTimeout(function(){
+			flatline_green.beginElement();
+		},dur_green);
+	},dur_green*2);
+
+
+
+	flatline_white.beginElement();
+
+	setInterval(function(){
+		var r = Math.floor(Math.random()*3);
+		wave_white[r].beginElement();
+		setTimeout(function(){
+			flatline_white.beginElement();
+		},dur_white);
+	},dur_white*2);
+
+};
+
+</script>
+</body>
+</html>

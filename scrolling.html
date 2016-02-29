@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+#scrolldiv{
+	position:fixed;
+	left:100px;
+	top:100px;
+	width:300px;
+	height:300px;
+	border: 3px solid #444;
+}
+
+
+
+
+
+
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media screen and (min-width:800px) {
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="scrolldiv">not scrolling</div>
+
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+<p>content</p>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+var scrolltimer;
+window.onscroll = function(){
+	clearTimeout(scrolltimer);
+	yb.id('scrolldiv').innerHTML = 'they see me scrollin<br>they hatin';
+	scrolltimer = setTimeout(function(){yb.id('scrolldiv').innerHTML = 'not scrolling';},1000);
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+	font-weight: 100;
+	background: #3ad;
+}
+
+.masthead{
+	background: #fff;
+	text-align: center;
+	/*display: table;*/
+	/*border: 1px solid red;*/
+	width: 100%;
+	position: relative;
+}
+
+.masthead_content{
+	padding-top: 200px;
+	padding-bottom: 200px;
+}
+
+h1{
+	font-size: 50px;
+	font-weight: 100;
+	margin: 0px;
+	padding-bottom: 40px;
+}
+
+.getstarted{
+	background-color: #3ad;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 3px;
+	font-size: 25px;
+	padding: 15px 30px;
+	font-weight: normal;
+}
+
+.getstarted:hover{
+	background: #4be;
+}
+
+#chevron{
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	border-top: 50px solid #fff;
+}
+
+/****************************************
+Breakpoints
+****************************************/
+
+
+/*first breakpoint*/
+@media (min-width:800px) {
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="masthead">
+	<div class="masthead_content">
+		<h1>Clean design works</h1>
+		<a href="#" class="getstarted">Get started now</a>
+	</div>
+	<div id="chevron"></div>
+</div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+function chevron(){
+	var w = window.innerWidth/2;
+	yb.id('chevron').style.borderLeft = w+'px solid #3ad';
+	yb.id('chevron').style.borderRight = w+'px solid #3ad';
+}
+
+chevron();
+
+window.onresize = chevron;
+
+
+</script>
+</body>
+</html>

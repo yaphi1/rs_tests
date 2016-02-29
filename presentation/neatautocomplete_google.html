@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Yaphi's Google Autocomplete</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+#input{
+	font-size: 25px;
+	padding: 10px;
+	width: 450px;
+	box-sizing: border-box;
+}
+
+#output{
+	display: inline-block;
+	background: #eee;
+	min-width: 450px;
+}
+
+#output a{
+	display: block;
+	color: #333;
+	text-decoration: none;
+	font-size: 25px;
+	padding: 10px;
+}
+
+#output a.selected, #output a:hover{
+	background: #aef;
+}
+
+
+/*first breakpoint*/
+@media (min-width:600px) {
+}
+
+</style>
+
+</head>
+<body>
+
+<input type="text" id="input" autocomplete="off">
+<br><div id="output"></div>
+
+<script>
+var yb = { id : function(str){return document.getElementById(str)} };
+
+var dictionary = ['a','aa','aab','aba','abb','abc','aaa'];
+
+var position = 0;
+var currentterm = '';
+var list = [];
+
+
+/*function getData(term){
+	return term.match(/^ *$/) ? '' : dictionary.filter(function(v){ return v.match(RegExp('^'+term,'i')) });
+}*/
+
+var handleData = function(json){
+	list = [];
+	var output = '';
+	for(var i=0; i<json[1].length; i++){
+		list.push(json[1][i][0].replace(/<\/*b>/gi,'').replace(/&amp;/gi,'&'));
+		output += '<a href="http://www.google.com/search?q='+list[i]+'" target="_blank">'+json[1][i][0]+'</a>';
+	}
+	yb.id('output').innerHTML = output;
+};
+
+var tag = '';
+
+function autocomplete(searchterm){
+	position = 0;
+	if(tag!=''){document.body.removeChild(tag)} // get rid of existing script tag (so we don't flood the document)
+	tag = document.createElement('script');
+	tag.src = 'https://www.google.com/complete/search?client=hp&hl=en&sugexp=msedr&gs_rn=60&gs_ri=hp&cp=1&gs_id=5om&q='+searchterm+'&xhr=t&callback=handleData'
+	document.body.appendChild(tag);
+}
+
+
+
+yb.id('input').onkeyup = function(e){
+	
+	var k = e.keyCode;
+	var items = yb.id('output').getElementsByTagName('a');
+
+	if(!String(k).match(/^(37|38|39|40|18|224|16|17|13)$/)){
+		currentterm = this.value;
+		autocomplete(this.value);
+	}
+
+	// enter key
+	if(k==13 && this.value.length){
+		window.location.href = 'https://www.google.com/search?q='+this.value;
+	}
+
+	// down key
+	if(k==40 && items.length){
+		if(position<list.length){
+			position++;
+			highlight(position-1, items);
+			this.value = list[position-1];
+		}
+		else {
+			position=0;
+			clearhighlight(items);
+			this.value = currentterm;
+		}
+	}
+
+	// up key
+	if(k==38 && items.length){
+		if(position>1){
+			position--;
+			highlight(position-1, items);
+			this.value = list[position-1];
+		}
+		else if(position==1){
+			position--;
+			clearhighlight(items);
+			this.value = currentterm;
+		}
+		else {
+			position=list.length;
+			highlight(position-1, items);
+			this.value = list[position-1];
+		}
+	}
+
+
+	console.log('k: '+k);
+	console.log('position: '+position);
+}
+
+function highlight(number, itemarray){
+	clearhighlight(itemarray);
+	itemarray[number].className = 'selected';
+}
+
+function clearhighlight(itemarray){
+	for(var i=0; i<itemarray.length; i++){
+		itemarray[i].className = '';
+	}
+}
+
+
+yb.id('input').onfocus = function(){
+	autocomplete(this.value);
+}
+
+yb.id('input').onblur = function(){
+	setTimeout(function(){yb.id('output').innerHTML = '';}, 100);
+}
+
+
+</script>
+</body>
+</html>
