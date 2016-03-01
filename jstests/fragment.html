@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+
+
+
+
+<script>
+function createFragment(htmlStr){
+	var frag = document.createDocumentFragment();
+	var temp = document.createElement('div');
+	temp.innerHTML = htmlStr;
+	while(temp.firstChild){
+		// appending something to a fragment removes that thing from its original container
+		frag.appendChild(temp.firstChild);
+	}
+	return frag;
+};
+
+var html = '<div style="background:red;">Red bg 1 <div style="background:blue;">Blue bg 1</div></div> <div style="background:green;">Green bg 1</div>';
+
+document.body.appendChild(createFragment(html));
+</script>
+</body>
+</html>
