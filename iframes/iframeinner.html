@@ -11,6 +11,10 @@ document.write(window.location.href);
 document.write('<br><br>referrer: '+document.referrer);
 
 document.write('<br><br>outer context (parent): '+parent.window.location.href);
+
+window.parent.document.getElementById('b').onclick = function(){
+	console.log('clicked');
+};
 </script>
 
 </body>

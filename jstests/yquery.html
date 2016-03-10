@@ -37,6 +37,7 @@ body{
 				this[i].style.backgroundColor = bg || 'yellow';
 				this[i].style.color = fg || '#333';
 			}
+			return this;
 		},
 		spin: function(d){
 			if(typeof(d)!=='number'){d=45;}
@@ -44,6 +45,7 @@ body{
 				this[i].style.transition = 'transform 1s';
 				this[i].style.transform = 'rotate('+d+'deg)';
 			}
+			return this;
 		}
 	};
 	window.y = function(q){
