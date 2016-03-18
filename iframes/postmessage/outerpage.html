@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+body{
+	margin: 0px;
+	font-size:20px;
+	font-family:sans-serif;
+	color:#333;
+}
+
+</style>
+
+</head>
+<body>
+
+Outer page
+
+<br><br>
+
+<button id="post">Post random number</button>
+
+<br><br>
+<iframe id="inner" src="innerpage.html"></iframe>
+
+
+<br><br>
+output from iframe:
+<div id="output"></div>
+
+<script>
+// get the window displayed in the iframe
+var targetWindow = document.getElementById('inner').contentWindow;
+
+document.getElementById('post').onclick = function(){
+	var rand = Math.floor(Math.random()*999999);
+	targetWindow.postMessage(
+		'Message: '+rand
+		+'<br><br>URL: '+window.location.href
+	,'*'); // change the star to the domain that should recieve the data
+};
+
+
+// get iframe reference directly from iframe so there's no need to find it by id
+window.addEventListener('message', function(e) {
+	var message = e.data;
+	document.getElementById('output').innerHTML = message;
+	
+	// e.source tells you the source of the message
+	console.log(e.source);
+
+	e.source.postMessage('straight to the source','*');
+});
+
+// note:
+// find iframes by querySelectorAll with correct adobe src pattern
+// could have a message and get it with e.source too (this might be more robust)
+// remember to use strings only (postMessage objects are not compatible with IE 9 and below)
+
+</script>
+</body>
+</html>
